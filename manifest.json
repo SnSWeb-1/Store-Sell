@@ -1,0 +1,15 @@
+{
+  "name": "Store & Sell",
+  "short_name": "StoreSell",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#151515",
+  "theme_color": "#fcdc58",
+  "icons": [
+    {
+      "src": "logo512px.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
