@@ -1,6 +1,6 @@
 {
   "name": "Store & Sell",
-  "short_name": "StoreSell",
+  "short_name": "Store&Sell",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#151515",
