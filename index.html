@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/rashi/Downloads/store_and_sell_mvp_updated/Test5.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store &amp; Sell</title>
+  <link href="./Store &amp; Sell_files/css2" rel="stylesheet">
+<style>
+/* Base Styles */
+:root {
+  --primary-color: #fcdc58;
+  --background-color: #1e1e1e;
+  --text-color: #f5f5f5;
+  --accent-color: #151515;
+  --card-bg: #2b2b2b;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-left button,
+.nav-right button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.yellow-box {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.search-bar {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  width: 300px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.hero p {
+  color: #ccc;
+  margin: 1rem 0;
+}
+
+.hero button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Grid Layout */
+.grid-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px; /* Optional, to prevent stretching too much */
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(252, 220, 88, 0.3);
+  border: 1px solid var(--primary-color);
+}
+
+.img-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+.card-content {
+  padding: 0.3rem 0.5rem;
+  background-color: var(--card-bg);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.card-content p {
+  color: #ccc;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--accent-color);
+  padding: 3rem 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.footer h4 {
+  color: var(--primary-color);
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+/* Call-to-Action Bar */
+#cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 15% auto;
+  padding: 20px 20px 40px 20px;
+  border: 1px solid var(--primary-color);
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content input,
+.modal-content button {
+  display: block;
+  margin: 1rem auto;
+}
+
+.modal-content input {
+  padding: 0.5rem;
+  width: 80%;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--accent-color);
+  background: none;
+  border: none;
+}
+
+/* Responsive Design */
+
+/* Medium Screens: Tablets */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-right {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .nav-right input[type="text"] {
+    width: 200px;
+  }
+
+  .nav-right button {
+    width: auto;
+  }
+}
+
+/* Small Screens: Phones */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-left {
+    display: none;
+    flex-direction: column;
+    background-color: var(--accent-color);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .nav-left.show {
+    display: flex;
+  }
+
+  .nav-left button,
+  .nav-left .yellow-box {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-bar {
+    width: 90%;
+    margin: 1rem auto;
+    display: block;
+  }
+
+  .nav-right,
+  header > .logo {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .footer-column {
+    width: 100%;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .grid-wrapper {
+    padding: 0 1rem;
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+
+  #cta-bar {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  #cta-bar .cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #cta-bar .cta-content a {
+    align-self: flex-start;
+  }
+
+  #cta-bar button.cta-close {
+    align-self: flex-end;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+  }
+
+  .footer-column:nth-child(1) { order: 1; }
+  .footer-column:nth-child(2) { order: 2; }
+  .footer-column:nth-child(3) { order: 3; }
+}
+
+/* Image handling */
+.card img,
+.img-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Accessibility & Misc Fixes */
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none !important;
+}
+
+</style>
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+<link rel="manifest" href="icons/site.webmanifest">
+
+  <script>
+    function showComingSoon(tabName) {
+      const main = document.getElementById('main');
+      if (main) {
+        main.innerHTML = `<section style='text-align:center; padding:2rem;'><h2 style='color:#fcdc58;'>${tabName}</h2><p style='color:#ccc;'>This page is coming soon!</p></section>`;
+      }
+    }
+    function showComingSoonPage(featureName) {
+      const section = document.getElementById('coming-soon-template');
+      const main = document.getElementById('main');
+      if (section && main) {
+        main.innerHTML = `
+          <section style="text-align:center; padding:2rem;">
+            <h2 style="color:#fcdc58;">${featureName}</h2>
+            <div>${section.innerHTML}</div>
+          </section>
+        `;
+        main.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    function showHowItWorks(sectionId) {
+      const section = document.getElementById(sectionId);
+      const main = document.getElementById('main');
+      if (section && main) {
+        main.innerHTML = `<div style="padding: 2rem;">${section.innerHTML}</div>`;
+        main.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    function goToAboutUs() {
+      const main = document.getElementById('main');
+      const about = document.getElementById('about');
+      if (main && about) {
+        main.innerHTML = `<div style="padding: 2rem;">${about.innerHTML}</div>`;
+        main.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.style.display = 'flex';
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.style.display = 'none';
+    }
+    function showParts() {
+      const main = document.getElementById('main');
+      if (!main) return;
+      main.innerHTML = `
+        <section class="hero">
+          <h1>Buy & Sell Car Parts — No Hassle</h1>
+          <p>We store, rate, and deliver. You just sell.</p>
+          <button>List a Part</button>
+        </section>
+<section style="background-color: #1e1e1e; padding: 2rem 1rem;">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <input type="text" placeholder="Search for parts (e.g., engine, brakes, lights)" style="width: 80%; max-width: 600px; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 8px; border: none; position: relative;">
+    <img src="images/viewmoreicon.png" alt="Search" style="position: relative; right: 2.5rem; top: 0.2rem; width: 24px; vertical-align: middle;">
+  </div>
+
+  <div class="grid-wrapper">
+    <h2 style="color: #fcdc58; text-align: center;">Search by Category</h2>
+    <div class="grid">
+      <div class="card"><div class="img-container"><img src="images/tiresicon.png" alt="Tires"></div><div class="card-content"><h3>Tires</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/wheelsicon.png" alt="Wheels"></div><div class="card-content"><h3>Wheels</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/headlightsicon.png" alt="Headlights"></div><div class="card-content"><h3>Headlights</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/brakeicon.png" alt="Brakes"></div><div class="card-content"><h3>Brakes</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/viewmoreicon.png" alt="View More"></div><div class="card-content"><h3>View More</h3></div></div>
+    </div>
+  </div>
+
+  <div class="grid-wrapper" style="margin-top: 2rem;">
+    <h2 style="color: #fcdc58; text-align: center;">Search by Vehicle Brand</h2>
+    <div class="grid">
+      <div class="card"><div class="img-container"><img src="images/toyotalogo.png" alt="Toyota"></div><div class="card-content"><h3>Toyota</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/nissanlogo.png" alt="Nissan"></div><div class="card-content"><h3>Nissan</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/hondalogo.png" alt="Honda"></div><div class="card-content"><h3>Honda</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/mitsubishilogo.png" alt="Mitsubishi"></div><div class="card-content"><h3>Mitsubishi</h3></div></div>
+      <div class="card"><div class="img-container"><img src="images/viewmoreicon.png" alt="View More"></div><div class="card-content"><h3>View More</h3></div></div>
+    </div>
+  </div>
+</section>
+
+        <h2 style="text-align:center; color:#fcdc58">Featured Car Parts</h2>
+<div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/sparcoseat.png" alt="Sparco SPX Leather Seat">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Sparco SPX Seat</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 10,820</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★☆☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/812gintaniexhaust.png" alt="Gintani Exhaust System">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Gintani Exhaust - Ferrari</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 42,240</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/knairfilter.png" alt="K&N Air Filter">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">K&N High-Flow Filter</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 191</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★☆☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/manthey.png" alt="Manthey Performance Kit">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Manthey Kit - 911 GT3</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 210,460</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/alternator.png" alt="Honda Alternator">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Honda Alternator</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 280</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/gearbox.png" alt="BMW Gearbox">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">BMW Gearbox</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 3,200</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★☆☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/headlight.png" alt="Toyota Headlight">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Toyota Headlight</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 220</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/brembo.png" alt="Brembo Brake Kit">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Brembo Brake Kit</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 1,800</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/radiator.png" alt="Mishimoto Radiator">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Mishimoto Radiator</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 950</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/pioneer.png" alt="Pioneer CarPlay Unit">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Pioneer CarPlay Unit</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 1,300</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+  </div>
+</div>`;
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      showParts();
+    });
+  </script>
+</head>
+<body>
+  <header>
+  <div class="mobile-header">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <div class="logo">
+      <img src="images/logo.png" alt="Store & Sell logo" style="height: 60px;">
+    </div>
+  </div>
+
+  <div class="nav-left">
+    <button onclick="showParts()">Home</button>
+    <button class="yellow-box" onclick="showComingSoon('Sell with Us')">Sell with Us</button>
+    <button onclick="showComingSoon('Wants List')">Wants List</button>
+    <button onclick="showComingSoon('Community')">Community</button>
+    <button onclick="goToAboutUs()">About Us</button>
+    <button onclick="openModal('mailModal')">Daily Mail</button>
+    <input type="text" placeholder="Quick Search" class="search-bar">
+    <button class="yellow-box" onclick="openModal('signupModal')">Sign Up</button>
+  </div>
+</header>
+
+  <main id="main">
+        <section class="hero">
+          <h1>Buy &amp; Sell Car Parts — No Hassle</h1>
+          <p>We store, rate, and deliver. You just sell.</p>
+          <button>List a Part</button>
+        </section>
+        <h2 style="text-align:center; color:#fcdc58">Available Car Parts</h2>
+        <div class="grid">
+          <div class="card"><img src="./Store &amp; Sell_files/alternator.png" alt="Honda Alternator"><div class="card-content"><h3>Honda Alternator</h3><p>AED 280</p><p style="color:#fcdc58;">★★★★☆</p></div></div>
+          <div class="card"><img src="./Store &amp; Sell_files/gearbox.png" alt="BMW Gearbox"><div class="card-content"><h3>BMW Gearbox</h3><p>AED 3200</p><p style="color:#fcdc58;">★★★☆☆</p></div></div>
+          <div class="card"><img src="./Store &amp; Sell_files/headlight.png" alt="Toyota Headlight"><div class="card-content"><h3>Toyota Headlight</h3><p>AED 220</p><p style="color:#fcdc58;">★★★★☆</p></div></div>
+          <div class="card"><img src="./Store &amp; Sell_files/brembo.png" alt="Brembo Brake Kit"><div class="card-content"><h3>Brembo Brake Kit</h3><p>AED 1800</p><p style="color:#fcdc58;">★★★★★</p></div></div>
+          <div class="card"><img src="./Store &amp; Sell_files/radiator.png" alt="Mishimoto Radiator"><div class="card-content"><h3>Mishimoto Radiator</h3><p>AED 950</p><p style="color:#fcdc58;">★★★★☆</p></div></div>
+          <div class="card"><img src="./Store &amp; Sell_files/pioneer.png" alt="Pioneer CarPlay Unit"><div class="card-content"><h3>Pioneer CarPlay Unit</h3><p>AED 1300</p><p style="color:#fcdc58;">★★★★☆</p></div></div>
+        </div></main>
+  <section id="about" style="display:none;">
+    <h2>About Us</h2>
+    <p>Store &amp; Sell is a platform for hassle-free automotive part sales. Sellers ship items to us, we store, rate, and deliver them — all you do is list. Buyers benefit from trusted quality and fast service.</p>
+    <p>We bridge the gap between car part suppliers and automotive enthusiasts. By handling storage and logistics, we make it easier than ever to turn spare parts into value. Whether you're a casual seller or an auto shop offloading inventory, Store &amp; Sell gives your items visibility, credibility, and reach.</p>
+    <p>Founded in 2025 in the UAE, our mission is to simplify the aftermarket car parts experience through transparency, technology, and trust. We're continuously evolving to serve a growing community of car lovers, professionals, and resellers.</p>
+    <p>Our team combines industry experience with a deep passion for cars. Every part is inspected, rated, and handled with care to guarantee buyer satisfaction. We also work with garages, custom shops, and enthusiasts to expand our marketplace's offerings and create a connected ecosystem of automotive commerce.</p>
+  </section>
+
+  <!-- How It Works Sections -->
+  <section id="storing" style="display:none;">
+    <h2>Hassle-Free Storage for Your Car Parts</h2>
+    <p>Running out of space or just don’t want the hassle of managing inventory? We’ve got your back. At Store &amp; Sell, we provide secure, climate-aware storage for your car parts in our centralized UAE facility.</p>
+    <p><strong>Here’s how it works:</strong></p>
+    <ul>
+      <li>You ship it.</li>
+      <li>We inspect &amp; rate it.</li>
+      <li>We store &amp; prep.</li>
+      <li>You just track performance.</li>
+    </ul>
+    <p><strong>Why it matters:</strong></p>
+    <ul>
+      <li>Avoid clutter in your garage</li>
+      <li>Focus on sourcing or flipping, not storage</li>
+      <li>Inventory managed, tracked, and ready to move fast</li>
+    </ul>
+  </section>
+
+  <section id="selling" style="display:none;">
+    <h2>Selling Made Simple</h2>
+    <p>You focus on sourcing, we’ll handle the selling. With Store &amp; Sell, anyone — from hobbyist to pro — can list car parts and reach quality buyers fast.</p>
+    <p><strong>Your selling process:</strong></p>
+    <ul>
+      <li>Create a listing in under 2 minutes.</li>
+      <li>Ship it to us.</li>
+      <li>We list &amp; promote it.</li>
+      <li>We ship it when sold.</li>
+    </ul>
+  </section>
+
+  <section id="buying" style="display:none;">
+    <h2>The Parts You Need, Quality You Can Trust</h2>
+    <p>Tired of guessing condition from vague listings? At Store &amp; Sell, we take the risk out of buying car parts online.</p>
+    <ul>
+      <li>Condition ratings verified by our team</li>
+      <li>High-quality images</li>
+      <li>Clear pricing and return policy</li>
+      <li>Search &amp; filter features</li>
+    </ul>
+    <p>Buy with peace of mind — no surprises.</p>
+  </section>
+
+  <section id="logistics" style="display:none;">
+    <h2>Fast &amp; Transparent Logistics</h2>
+    <p>We deliver across the UAE with speed, care, and clarity.</p>
+    <ul>
+      <li>Orders processed within 24 hours</li>
+      <li>Tracking and SMS/email updates</li>
+      <li>Standard, Express, and Scheduled options</li>
+    </ul>
+    <p><strong>Our logistics partners:</strong> Reliable regional couriers. Need to reschedule? Contact support.</p>
+  </section>
+
+  <section id="faqs" style="display:none;">
+    <h2>You Asked, We Answered</h2>
+    <p><strong>How long does it take for a part to ship?</strong><br>Standard: 1–3 business days. Express available.</p>
+    <p><strong>Can I cancel a listing?</strong><br>Yes, from your seller dashboard before the item sells.</p>
+    <p><strong>What’s your return policy?</strong><br>7-day return window for misrepresented or damaged items.</p>
+    <p><strong>Do you accept international sellers?</strong><br>Currently UAE only — global expansion is coming!</p>
+    <button onclick="alert(&#39;Contact form coming soon!&#39;)" style="margin-top:1rem; padding:0.5rem 1rem; background:#fcdc58; color:#151515; border:none; border-radius:6px; cursor:pointer;">Contact Us</button>
+  </section>
+
+  <!-- Coming Soon Reusable -->
+  <section id="coming-soon-template" style="display:none;">
+    <h2>This Feature is Coming Soon!</h2>
+    <p>We’re building something awesome! Check back soon as we roll out powerful tools designed to streamline your selling experience.</p>
+  </section>
+
+<!-- Modals -->
+<div class="modal" id="mailModal">
+  <div class="modal-content" style="
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: #2b2b2b;
+    border: 1px solid #fcdc58;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  ">
+    <span class="close-btn" onclick="closeModal('mailModal')" style="
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    " onmouseover="this.style.color='#fcdc58'; this.style.transform='scale(1.2)';"
+       onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">×</span>
+
+    <h3 style="text-align: center; margin-top: 0; margin-bottom: 2rem;">Subscribe to Daily Mail</h3>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <input type="email" placeholder="Enter your email" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <button onclick="closeModal('mailModal')" style="
+        background-color: #fcdc58;
+        color: #151515;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="signupModal" style="display: none;">
+  <div class="modal-content" style="
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: #2b2b2b;
+    border: 1px solid #fcdc58;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  ">
+    <span class="close-btn" onclick="closeModal('signupModal')" style="
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    " onmouseover="this.style.color='#fcdc58'; this.style.transform='scale(1.2)';"
+       onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">×</span>
+
+    <h3 style="text-align: center; margin-top: 0; margin-bottom: 2rem;">Sign Up</h3>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <input type="email" placeholder="Email" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <input type="password" placeholder="Password" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <button onclick="closeModal('signupModal')" style="
+        background-color: #fcdc58;
+        color: #151515;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Register</button>
+    </div>
+  </div>
+</div>
+  
+<!-- Footer -->
+<div style="background-color: #151515; padding: 3rem 0;">
+  <div style="max-width: 1200px; margin: auto; padding: 0 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; color: #ccc; font-size: 0.9rem;">
+    <div>
+      <img src="images/logo.png" alt="Store & Sell Logo" style="height: 80px;margin-bottom: 1rem;">
+      <p>© 2025 Store &amp; Sell</p>
+      <div class="social-icons" style="margin-top: 1rem;">
+        <img src="images/youtube.png" alt="YouTube">
+        <img src="images/tiktok.png" alt="TikTok">
+        <img src="images/instagram.png" alt="Instagram">
+        <img src="images/email.png" alt="Email">
+      </div>
+    </div>
+    <div style="min-width: 160px; max-width: 200px;">
+      <h4 style="color: #fcdc58;">How It Works</h4>
+      <p onclick="showHowItWorks(&#39;storing&#39;)" style="cursor:pointer;">Storing with Us</p>
+      <p onclick="showHowItWorks(&#39;selling&#39;)" style="cursor:pointer;">Selling a Part</p>
+      <p onclick="showHowItWorks(&#39;buying&#39;)" style="cursor:pointer;">Buying a Part</p>
+      <p onclick="showHowItWorks(&#39;logistics&#39;)" style="cursor:pointer;">Delivery &amp; Logistics</p>
+      <p onclick="showHowItWorks(&#39;faqs&#39;)" style="cursor:pointer;">FAQs</p>
+    </div>
+    <div style="min-width: 160px; max-width: 200px;">
+      <h4 style="color: #fcdc58;">Sellers</h4>
+      <p onclick="showComingSoonPage(&#39;Submit a Part&#39;)" style="cursor:pointer;">Submit a Part</p>
+      <p onclick="showComingSoonPage(&#39;Rate Your Item&#39;)" style="cursor:pointer;">Rate Your Item</p>
+      <p onclick="showComingSoonPage(&#39;Storage Dashboard&#39;)" style="cursor:pointer;">Storage Dashboard</p>
+      <p onclick="showComingSoonPage(&#39;Shipping Instructions&#39;)" style="cursor:pointer;">Shipping Instructions</p>
+      <p onclick="showComingSoonPage(&#39;Photo Upload Guide&#39;)" style="cursor:pointer;">Photo Upload Guide</p>
+    </div>
+    <div style="min-width: 160px; max-width: 200px;">
+      <h4 style="color: #fcdc58;">Helpful Links</h4>
+      <p onclick="showComingSoonPage(&#39;Browse All Parts&#39;)" style="cursor:pointer;">Browse All Parts</p>
+      <p onclick="showComingSoonPage(&#39;Community &amp; Feedback&#39;)" style="cursor:pointer;">Community &amp; Feedback</p>
+      <p onclick="showComingSoonPage(&#39;Support Center&#39;)" style="cursor:pointer;">Support Center</p>
+      <p onclick="showComingSoonPage(&#39;Returns &amp; Policies&#39;)" style="cursor:pointer;">Returns &amp; Policies</p>
+      <p onclick="showComingSoonPage(&#39;Sustainable Sourcing&#39;)" style="cursor:pointer;">Sustainable Sourcing</p>
+      <p onclick="showComingSoonPage(&#39;Pricing Guidelines&#39;)" style="cursor:pointer;">Pricing Guidelines</p>
+      <p onclick="showComingSoonPage(&#39;Partner With Us&#39;)" style="cursor:pointer;">Partner With Us</p>
+    </div>
+  </div>
+</div>
+  <!-- Yellow CTA Bar -->
+  <div id="cta-bar" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #fcdc58; color: #151515; font-weight: bold; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000;">
+    <span>Sell with us — it’s free! Apply in just 5 minutes.</span>
+    <div>
+      <a href="file:///C:/Users/rashi/Downloads/store_and_sell_mvp_updated/Test5.html#" onclick="openModal(&#39;signupModal&#39;)" style="color: green; text-decoration: underline; margin-right: 1.5rem;">Get Started</a>
+      <button onclick="document.getElementById(&#39;cta-bar&#39;).style.display=&#39;none&#39;" style="background: none; border: none; font-size: 1.2rem; font-weight: bold; color: #151515; cursor: pointer;">×</button>
+    </div>
+  </div>
+
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('.nav-left');
+    nav.classList.toggle('show');
+  }
+</script>
+
+</body></html>
