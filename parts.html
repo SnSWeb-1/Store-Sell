@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parts - Store & Sell</title>
+
+
+<link rel="preload" href="/styles/header.html" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="/styles/footer.html" as="fetch" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/styles/common.css">
+<link rel="preload" href="/scripts/main.js" as="script">
+<script src="/scripts/main.js" defer></script>
+
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+<link rel="manifest" href="/icons/site.webmanifest">
+
+</head>
+<body>
+
+<!-- Header -->
+
+
+<div id="header-placeholder"></div>
+
+
+
+
+<!-- MAIN CONTENT -->
+<div class="page-wrapper">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Filter Parts</h3>
+
+<!-- Vehicle Model -->
+<div class="filter-section">
+  <label for="vehicle-model">Vehicle Model</label>
+  <select id="vehicle-model">
+    <option>All</option>
+    <option>Acura</option>
+    <option>Audi</option>
+    <option>BMW</option>
+    <option>Buick</option>
+    <option>Cadillac</option>
+    <option>Chevrolet</option>
+    <option>Chrysler</option>
+    <option>Dodge</option>
+    <option>Fiat</option>
+    <option>Ford</option>
+    <option>GMC</option>
+    <option>Honda</option>
+    <option>Hyundai</option>
+    <option>Infiniti</option>
+    <option>Jeep</option>
+    <option>Kia</option>
+    <option>Land Rover</option>
+    <option>Lexus</option>
+    <option>Mazda</option>
+    <option>Mercedes-Benz</option>
+    <option>Mini</option>
+    <option>Mitsubishi</option>
+    <option>Nissan</option>
+    <option>Porsche</option>
+    <option>RAM</option>
+    <option>Subaru</option>
+    <option>Tesla</option>
+    <option>Toyota</option>
+    <option>Volkswagen</option>
+    <option>Volvo</option>
+  </select>
+</div>
+
+
+<!-- Category -->
+<div class="filter-section">
+  <label for="category">Category</label>
+  <select id="category">
+    <option>All</option>
+
+    <optgroup label="Accessories">
+      <option>Audio/Video</option>
+      <option>Exterior Parts</option>
+      <option>Interior Parts</option>
+      <option>Mirrors</option>
+      <option>Windshields & Windows</option>
+    </optgroup>
+
+    <optgroup label="Drivetrain & Engine">
+      <option>Engines & Engine Parts</option>
+      <option>Fuel Systems</option>
+      <option>Steering</option>
+      <option>Transmission & Drivetrain</option>
+    </optgroup>
+
+    <optgroup label="Electrical & HVAC">
+      <option>Cooling Systems</option>
+      <option>Electrical Systems</option>
+      <option>HVAC (Heating, AC)</option>
+      <option>Lighting</option>
+    </optgroup>
+
+    <optgroup label="Performance & Off-road">
+      <option>Exhaust Systems</option>
+      <option>Off-road Parts</option>
+      <option>Performance Parts</option>
+    </optgroup>
+
+    <optgroup label="Safety & Maintenance">
+      <option>Body Parts</option>
+      <option>Brakes</option>
+      <option>Doors</option>
+      <option>Oil & Fluids</option>
+      <option>Safety Equipment</option>
+      <option>Tools & Garage Equipment</option>
+    </optgroup>
+
+    <optgroup label="Wheels & Tires">
+      <option>Tires</option>
+      <option>Wheels</option>
+      <option>Suspension</option>
+    </optgroup>
+
+  </select>
+</div>
+
+
+
+    <!-- Product Condition -->
+    <div class="filter-section">
+      <label>Product Condition</label>
+      <div class="rating-option"><input type="checkbox"> ★★★★★ (New)</div>
+      <div class="rating-option"><input type="checkbox"> ★★★★☆ (Never Used)</div>
+      <div class="rating-option"><input type="checkbox"> ★★★☆☆ (Used)</div>
+      <div class="rating-option"><input type="checkbox"> ★★☆☆☆ (Used)</div>
+      <div class="rating-option"><input type="checkbox"> ★☆☆☆☆ (Used)</div>
+      <div class="rating-option"><input type="checkbox"> ☆☆☆☆☆ (Junk)</div>
+    </div>
+
+    <!-- Price -->
+    <div class="filter-section">
+      <label>Price</label>
+      <div class="price-range">
+        <input type="text" placeholder="Min">
+        <span>–</span>
+        <input type="text" placeholder="Max">
+      </div>
+    </div>
+
+    <!-- Keyword Search -->
+    <div class="filter-section">
+      <label for="keyword">Keyword</label>
+      <div class="keyword-search">
+        <input type="text" id="keyword" placeholder="e.g. rims, tires...">
+        <button class="search-btn">🔍</button>
+      </div>
+    </div>
+
+    <!-- Clear Filters & Search Button -->
+    <div class="filter-section">
+      <button class="clear-filters-btn" onclick="clearFilters()">Clear Filters</button>
+      <button class="search-filters-btn" onclick="applyFilters()">Search Parts</button>
+
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-area">
+    <div class="sorting-bar">
+      <select>
+        <option>Newest</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Condition: Good to Bad</option>
+        <option>Condition: Bad to Good</option>
+        <option>Popularity</option>
+      </select>
+    </div>
+
+    <div class="coming-soon">Parts Coming Soon!</div>
+  </div>
+
+</div>
+
+
+ <!-- Coming Soon Reusable -->
+  <section id="coming-soon-template" style="display:none;">
+    <h2>This Feature is Coming Soon!</h2>
+    <p>We’re building something awesome! Check back soon as we roll out powerful tools designed to streamline your selling experience.</p>
+  </section>
+
+
+
+
+<!-- Modals -->
+<div class="modal" id="mailModal">
+  <div class="modal-content" style="
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: #2b2b2b;
+    border: 1px solid #fcdc58;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  ">
+    <span class="close-btn" onclick="closeModal('mailModal')" style="
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    " onmouseover="this.style.color='#fcdc58'; this.style.transform='scale(1.2)';"
+       onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">×</span>
+
+    <h3 style="text-align: center; margin-top: 0; margin-bottom: 2rem;">Subscribe to Daily Mail</h3>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <input type="email" placeholder="Enter your email" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <button onclick="closeModal('mailModal')" style="
+        background-color: #fcdc58;
+        color: #151515;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="signupModal" style="display: none;">
+  <div class="modal-content" style="
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: #2b2b2b;
+    border: 1px solid #fcdc58;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  ">
+    <span class="close-btn" onclick="closeModal('signupModal')" style="
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    " onmouseover="this.style.color='#fcdc58'; this.style.transform='scale(1.2)';"
+       onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">×</span>
+
+    <h3 style="text-align: center; margin-top: 0; margin-bottom: 2rem;">Sign Up</h3>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <input type="email" placeholder="Email" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <input type="password" placeholder="Password" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <button onclick="closeModal('signupModal')" style="
+        background-color: #fcdc58;
+        color: #151515;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Register</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+
+  <!-- Yellow CTA Bar -->
+  <div id="cta-bar" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #fcdc58; color: #151515; font-weight: bold; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000;">
+    <span>Sell with us! Apply in just 5 minutes.</span>
+    <div>
+      <button onclick="openModal('signupModal')" style="padding: 0.5rem 1rem; background: #151515; color: #fcdc58; border: none; border-radius: 6px; cursor: pointer;">
+  Get Started
+</button>
+      <button onclick="document.getElementById(&#39;cta-bar&#39;).style.display=&#39;none&#39;" style="background: none; border: none; font-size: 1.2rem; font-weight: bold; color: #151515; cursor: pointer;">×</button>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

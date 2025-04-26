@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parts - Store & Sell</title>
+
+<link rel="preload" href="/styles/header.html" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="/styles/footer.html" as="fetch" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/styles/common.css">
+<link rel="preload" href="/scripts/main.js" as="script">
+<script src="/scripts/main.js" defer></script>
+
+
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+<link rel="manifest" href="/icons/site.webmanifest">
+
+</head>
+<body>
+
+<!-- Header -->
+
+
+<div id="header-placeholder"></div>
+
+
+<!-- MAIN CONTENT -->
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Buy & Sell Car Parts — No Hassle</h1>
+  <p>We store, rate, and deliver. You just sell.</p>
+  <button onclick="alert('List a Part feature coming soon!')">List a Part</button>
+</section>
+
+<!-- Search Bar -->
+<section class="search-section" style="background-color: #1e1e1e; padding: 2rem 1rem;">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <input 
+      type="text"
+      placeholder="Search for parts (e.g., engine, brakes, lights)"
+      style="width: 80%; max-width: 600px; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 8px; border: none; margin: 0 auto; display: block; text-align: center;"
+    >
+  </div>
+
+  <!-- Search by Category -->
+  <div class="grid-wrapper">
+    <h2 style="color: #fcdc58; text-align: center; margin-bottom: 1rem;">Search by Category</h2>
+    <div class="grid">
+      <!-- Category Cards -->
+      <div class="card" onclick="window.location.href='parts.html?category=Tires'">
+        <div class="img-container"><img src="icons/tiresicon.svg" alt="Tires"></div>
+        <div class="card-content"><h3>Tires</h3></div>
+      </div>
+
+      <div class="card" onclick="window.location.href='parts.html?category=Wheels'">
+        <div class="img-container"><img src="icons/wheelsicon.svg" alt="Wheels"></div>
+        <div class="card-content"><h3>Wheels</h3></div>
+      </div>
+
+      <div class="card" onclick="window.location.href='parts.html?category=Suspension'">
+        <div class="img-container"><img src="icons/suspensionicon.svg" alt="Suspension"></div>
+        <div class="card-content"><h3>Suspension</h3></div>
+      </div>
+
+      <div class="card" onclick="window.location.href='parts.html?category=Brakes'">
+        <div class="img-container"><img src="icons/brakeicon.svg" alt="Brakes"></div>
+        <div class="card-content"><h3>Brakes</h3></div>
+      </div>
+
+      <div class="card view-more-card" onclick="window.location.href='parts.html?category=All'">
+        <div class="img-container"><img src="icons/plusicon.svg" alt="View All"></div>
+        <div class="card-content"><h3>View All</h3></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search by Vehicle Brand -->
+  <div class="grid-wrapper" style="margin-top: 2rem;">
+    <h2 style="color: #fcdc58; text-align: center; margin-bottom: 1rem;">Search by Vehicle Brand</h2>
+    <div class="grid">
+      <!-- Brand Cards -->
+      <div class="card" onclick="window.location.href='parts.html?brand=Toyota'">
+        <div class="img-container"><img src="icons/toyotalogo.svg" alt="Toyota"></div>
+        <div class="card-content"><h3>Toyota</h3></div>
+      </div>
+
+      <div class="card" onclick="window.location.href='parts.html?brand=Nissan'">
+        <div class="img-container"><img src="icons/nissanlogo.svg" alt="Nissan"></div>
+        <div class="card-content"><h3>Nissan</h3></div>
+      </div>
+
+      <div class="card" onclick="window.location.href='parts.html?brand=Jeep'">
+        <div class="img-container"><img src="icons/jeeplogo.svg" alt="Jeep"></div>
+        <div class="card-content"><h3>Jeep</h3></div>
+      </div>
+
+      <div class="card" onclick="window.location.href='parts.html?brand=Chevrolet'">
+        <div class="img-container"><img src="icons/chevylogo.svg" alt="Chevrolet"></div>
+        <div class="card-content"><h3>Chevrolet</h3></div>
+      </div>
+
+      <div class="card view-more-card" onclick="window.location.href='parts.html?brand=All'">
+        <div class="img-container"><img src="icons/plusicon.svg" alt="View All"></div>
+        <div class="card-content"><h3>View All</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Car Parts -->
+<section class="featured-parts" style="padding: 2rem 1rem;">
+  <h2 style="text-align: center; color: #fcdc58; margin-bottom: 2rem;">Featured Car Parts</h2>
+  <div class="grid-wrapper">
+    <div class="grid">
+      <!-- Example of a Featured Card -->
+      <div class="card">
+        <div class="img-container"><img src="images/sparcoseat.png" alt="Sparco SPX Seat"></div>
+        <div class="card-content" style="flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+          <div style="font-weight: bold; color: #fcdc58;">Sparco SPX Seat</div>
+          <div style="font-size: 0.85rem; color: #ccc;">AED 10,820</div>
+          <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+        </div>
+      </div>
+
+          <div class="card">
+      <div class="img-container">
+        <img src="images/812gintaniexhaust.png" alt="Gintani Exhaust System">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Gintani Exhaust</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 42,240</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/knairfilter.png" alt="K&N Air Filter">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">K&N High-Flow Filter</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 191</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★☆☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/king.png" alt="King Suspension">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">King Suspension</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 12,500</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/alternator.png" alt="Honda Alternator">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Honda Alternator</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 280</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/gearbox.png" alt="BMW Gearbox">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">BMW Gearbox</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 3,200</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★☆☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/headlight.png" alt="Toyota Headlight">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Toyota Headlight</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 220</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/brembo.png" alt="Brembo Brake Kit">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Brembo Brake Kit</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 1,800</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/radiator.png" alt="Mishimoto Radiator">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Mishimoto Radiator</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 950</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="images/pioneer.png" alt="Pioneer CarPlay Unit">
+      </div>
+      <div class="card-content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.75rem; height: 100px; justify-content: space-between;">
+        <div style="font-weight: bold; color: #fcdc58;">Pioneer CarPlay Unit</div>
+        <div style="font-size: 0.85rem; color: #ccc;">AED 1,300</div>
+        <div style="font-size: 0.75rem; color: #fcdc58;">★★★★☆</div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+ <!-- Coming Soon Reusable -->
+  <section id="coming-soon-template" style="display:none;">
+    <h2>This Feature is Coming Soon!</h2>
+    <p>We’re building something awesome! Check back soon as we roll out powerful tools designed to streamline your selling experience.</p>
+  </section>
+
+
+
+
+<!-- Modals -->
+<div class="modal" id="mailModal">
+  <div class="modal-content" style="
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: #2b2b2b;
+    border: 1px solid #fcdc58;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  ">
+    <span class="close-btn" onclick="closeModal('mailModal')" style="
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    " onmouseover="this.style.color='#fcdc58'; this.style.transform='scale(1.2)';"
+       onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">×</span>
+
+    <h3 style="text-align: center; margin-top: 0; margin-bottom: 2rem;">Subscribe to Daily Mail</h3>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <input type="email" placeholder="Enter your email" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <button onclick="closeModal('mailModal')" style="
+        background-color: #fcdc58;
+        color: #151515;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="signupModal" style="display: none;">
+  <div class="modal-content" style="
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: #2b2b2b;
+    border: 1px solid #fcdc58;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  ">
+    <span class="close-btn" onclick="closeModal('signupModal')" style="
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    " onmouseover="this.style.color='#fcdc58'; this.style.transform='scale(1.2)';"
+       onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">×</span>
+
+    <h3 style="text-align: center; margin-top: 0; margin-bottom: 2rem;">Sign Up</h3>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <input type="email" placeholder="Email" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <input type="password" placeholder="Password" style="
+        padding: 0.5rem;
+        width: 80%;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+      ">
+      <button onclick="closeModal('signupModal')" style="
+        background-color: #fcdc58;
+        color: #151515;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Register</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+  <!-- Yellow CTA Bar -->
+  <div id="cta-bar" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #fcdc58; color: #151515; font-weight: bold; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000;">
+    <span>Sell with us! Apply in just 5 minutes.</span>
+    <div>
+      <button onclick="openModal('signupModal')" style="padding: 0.5rem 1rem; background: #151515; color: #fcdc58; border: none; border-radius: 6px; cursor: pointer;">
+  Get Started
+</button>
+      <button onclick="document.getElementById(&#39;cta-bar&#39;).style.display=&#39;none&#39;" style="background: none; border: none; font-size: 1.2rem; font-weight: bold; color: #151515; cursor: pointer;">×</button>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
